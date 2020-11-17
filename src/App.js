@@ -99,7 +99,6 @@ const movies = {
 
 class App extends Component {
   render() {
-    console.log('Props', this.props)
     return (
       <div>
         <header className="App-header">
@@ -108,9 +107,15 @@ class App extends Component {
         </header>
         <h2>Favorite Movies</h2>
         <ul>
-          {profiles.map(profile => (
-            <li key={profile.id}>{profile.favoriteMovieId}</li>
-           ))
+          {profiles.map(profile => {
+          	const user = users[profile.userID].name;
+          	const movie = movies[profile.favoriteMovieID].name;
+           		return (
+            	<li key={profile.id}>
+					<p>{`${user}`}</p>
+				</li>
+			)
+		  })
           }
         </ul>
       </div>
