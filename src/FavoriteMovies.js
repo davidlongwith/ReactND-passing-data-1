@@ -5,6 +5,10 @@ class FavoriteMovies extends Component {
     console.log('Props', this.props)
     return (
       <ul>
+        {this.props.profiles.map(profile => (
+          <li key={profile.id}>{profile.favoriteMovieId}</li>
+         ))
+        }
       </ul>
     )
   }
